@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: jwt-spring-security
+
+server:
+  port: 9008
