@@ -1,6 +1,6 @@
 package com.inzamamul.security.configuration.jwt;
 
-import com.inzamamul.security.service.security.UserPrinciple;
+import com.inzamamul.security.configuration.security.UserPrinciple;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

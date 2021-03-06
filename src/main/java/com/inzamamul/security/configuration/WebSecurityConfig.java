@@ -2,7 +2,7 @@ package com.inzamamul.security.configuration;
 
 import com.inzamamul.security.configuration.jwt.JwtAuthEntryPoint;
 import com.inzamamul.security.configuration.jwt.JwtRequestFilter;
-import com.inzamamul.security.service.security.UserDetailsServiceImpl;
+import com.inzamamul.security.configuration.security.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

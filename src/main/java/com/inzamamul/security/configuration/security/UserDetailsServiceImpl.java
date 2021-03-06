@@ -1,4 +1,4 @@
-package com.inzamamul.security.service.security;
+package com.inzamamul.security.configuration.security;
 
 import com.inzamamul.security.entity.User;
 import com.inzamamul.security.repository.UserRepository;
