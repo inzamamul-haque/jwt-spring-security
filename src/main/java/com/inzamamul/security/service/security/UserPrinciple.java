@@ -1,18 +1,20 @@
-package com.inzamamul.security.Service;
+package com.inzamamul.security.service.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.inzamamul.security.Entity.User;
+import com.inzamamul.security.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.lang.management.OperatingSystemMXBean;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class UserPrinciple implements UserDetails {
 
-    private String id;
+    private Long id;
 
     private String username;
 
@@ -21,7 +23,7 @@ public class UserPrinciple implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrinciple(String id, String username, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UserPrinciple(Long id, String username, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -29,11 +31,16 @@ public class UserPrinciple implements UserDetails {
     }
 
 
-    public static UserPrinciple build(User user) {
+    public static UserPrinciple build(Optional<User> optionalUser) {
+        User user = optionalUser.get();
         List<GrantedAuthority> authorities = user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName())
         ).collect(Collectors.toList());
 
         return new UserPrinciple(user.getId(), user.getUsername(), user.getPassword(), authorities);
+    }
+
+    public Long getId() {
+        return id;
     }
 
     @Override
